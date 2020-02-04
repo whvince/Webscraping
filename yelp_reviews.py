@@ -22,7 +22,8 @@ while True:
         index = index + 1
         # Find all the reviews on the page
         wait_review = WebDriverWait(driver, 1)
-        reviews = wait_review.until(EC.presence_of_all_elements_located((By.XPATH, '//div[@class="lemon--div__373c0__1mboc sidebarActionsHoverTarget__373c0__2kfhE arrange__373c0__UHqhV gutter-12__373c0__3kguh layout-stack-small__373c0__3cHex border-color--default__373c0__2oFDT"]')))
+        # Note Yelp periodically updates its HTML syntax so the following tags may need to be updated
+        reviews = wait_review.until(EC.presence_of_all_elements_located((By.XPATH, '//div[@class="lemon--div__373c0__1mboc spinner-container__373c0__N6Hff border-color--default__373c0__YEvMS"]')))
         
         for review in reviews:
             # Initialize an empty dictionary for each review
